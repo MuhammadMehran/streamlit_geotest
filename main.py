@@ -15,6 +15,13 @@ from streamlit_folium import folium_static
 import folium
 import requests
 from requests.exceptions import ConnectionError
+import socket
+
+
+## getting the hostname by socket.gethostname() method
+hostname = socket.gethostname()
+## getting the IP address using socket.gethostbyname() method
+ip_address = socket.gethostbyname(hostname)
 
 
 def config():
@@ -53,6 +60,8 @@ def get_geolocation():
 
 def other_tab():
     st.header("Other TAB")
+    st.markdown(f"Hostname: {hostname}")
+    st.markdown(f"IP Address: {ip_address}")
 
 
 def home():
